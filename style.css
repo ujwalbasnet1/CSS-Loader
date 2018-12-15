@@ -1,0 +1,183 @@
+body {
+    background: #ccc;
+}
+
+h2 {
+    text-align: center;
+}
+
+.loader {
+    /* background: #BADA55; */
+    height: 80px;
+    width: 80px;
+    margin: auto;
+    position: relative;
+}
+
+
+/* ------------------------------------------------------------ */
+
+.square--loader::after,
+.square--loader::before {
+    content: ' ';
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    background: blue;
+    position: absolute;
+    animation: SquareLoader 1s ease infinite;
+    animation-delay: .5s;
+    right: 50%;
+}
+
+.square--loader::before {
+    animation: SquareLoader 1s ease infinite;    
+}
+
+@keyframes SquareLoader {
+    0%{
+        right: 50%;
+        top: 0;
+        transform: rotate(0deg);
+    }
+    25%{
+        right: 0%;
+        top: 50%;
+        transform: rotate(45deg);
+    }
+    50%{
+        right: 50%;
+        top: 100%;
+        transform: rotate(0deg);
+    }
+    75%{
+        right: 100%;
+        top: 50%;
+        transform: rotate(45deg);
+    }
+    100%{
+        right: 50%;
+        top: 0;
+        transform: rotate(0deg);
+    }
+}
+
+
+/* --------------------------------------------------- */
+
+.circular--loader{
+    border:10px solid red;
+    width: 50px;
+    height: 50px;
+    border-top-color: blue;
+    border-radius: 50%;
+    animation: CircularLoader 1s ease infinite;
+}
+
+
+.transparent {
+    border-color: transparent;
+    border-top-color: blue;
+}
+
+
+@keyframes CircularLoader {
+    from {
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(360deg);
+    }
+}
+
+/* --------------------------------------------------------------------------- */
+
+.bounce--loader,
+.opacity--loader {
+    position: relative;
+    height: 30px;
+    width: 60px;
+}
+
+.circle {
+    content: ' ';
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: blue;
+    position: absolute;
+}
+
+.bounce--loader span{   
+    animation: BounceLoader .6s ease-in-out infinite alternate;
+}
+
+.bounce--loader span:nth-child(1) {
+    top: 0;
+    left: 0;
+}
+.bounce--loader span:nth-child(2) {
+    top: 0;
+    left: 50%;
+    animation-delay: 0.15s;
+}
+.bounce--loader span:nth-child(3) {
+    top: 0;
+    left: 100%;
+    animation-delay: 0.3s;
+}
+
+@keyframes BounceLoader {
+    from{
+        top: 0;
+    }
+    to{
+        top: 100%;
+    }
+}
+
+/* -------------------------------------------------------- */
+
+.opacity--loader span{   
+    animation: OpacityLoader .8s ease-in-out infinite;
+}
+
+.opacity--loader span:nth-child(1) {
+    top: 0;
+    left: 0;
+}
+.opacity--loader span:nth-child(2) {
+    top: 0;
+    left: 50%;
+    animation-delay: 0.2s;
+}
+.opacity--loader span:nth-child(3) {
+    top: 0;
+    left: 100%;
+    animation-delay: 0.4s;
+}
+
+@keyframes OpacityLoader {
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
+/* ------------------------------------------------------------- */
+
+
+.container {
+    animation: MAIN 2s ease;
+}
+
+@keyframes MAIN {
+    from {
+        transform: translateY(-100%);
+    }
+    to{
+        transform: translateY(0);
+    }
+}
